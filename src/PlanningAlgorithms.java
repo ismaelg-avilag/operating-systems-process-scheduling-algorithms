@@ -9,8 +9,13 @@ public class PlanningAlgorithms {
     {
         ArrayList<String> result = new ArrayList<String>();
 
+        Queue<Process> fcfsQueue = new LinkedList<>();
+
         for(Process process : processesList)
-            result.add(process.getName());
+            fcfsQueue.add(process);
+
+        while(!fcfsQueue.isEmpty())
+            result.add(fcfsQueue.poll().getName());
 
         return result;
     }
