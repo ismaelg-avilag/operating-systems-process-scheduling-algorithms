@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public class Process {
 
     private String name;
@@ -20,6 +22,19 @@ public class Process {
     public void setName(String name) { this.name = name; }
     public void setDuration(int duration) { this.duration = duration; }
     public void setPriority(int priority) { this.priority = priority; }
+
+
+    public static Comparator<Process> durationComparator = new Comparator<Process>() {
+        @Override
+        public int compare(Process process1, Process process2) {
+            int durationComparator =  Integer.compare(process1.getDuration(), process2.getDuration());
+
+            if(durationComparator == 0)
+                return Integer.compare(process1.getPriority(), process2.getPriority());
+
+            return durationComparator;
+        }
+    };
 
 
 }
