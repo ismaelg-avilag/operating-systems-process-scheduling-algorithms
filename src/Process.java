@@ -36,5 +36,17 @@ public class Process {
         }
     };
 
+    public static Comparator<Process> priorityComparator = new Comparator<Process>() {
+        @Override
+        public int compare(Process process1, Process process2) {
+            int priorityComparator =  Integer.compare(process1.getPriority(), process2.getPriority());
+
+            if(priorityComparator == 0)
+                return Integer.compare(process1.getDuration(), process2.getDuration());
+
+            return priorityComparator;
+        }
+    };
+
 
 }
