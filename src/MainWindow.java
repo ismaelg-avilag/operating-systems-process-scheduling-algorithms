@@ -1,21 +1,18 @@
 import javax.swing.*;
 
-
 public class MainWindow {
-    private JPanel panel1;
-    private JTextField textFieldProcessName;
-    private JSpinner spinnerDuration;
-    private JSpinner spinnerPriority;
-    private JButton ButtonAddProcess;
-    private JButton ButtonRunAlgorithm;
-    private JTextArea textAreaExecution;
-    private JTextArea textAreaProcessList;
-    private JRadioButton radioButtonInicio;
-    private JRadioButton radioButtonFinal;
-    private JRadioButton radioButtonFCFS;
-    private JRadioButton radioButtonSJF;
-    private JRadioButton radioButtonPriorities;
-    private JRadioButton radioButtonRoundRobin;
-    private JButton buttonLoadProcess;
-
+    private JButton button1;
+    private JButton button2;
+    private JButton button3;
+    private JRadioButton radioButton1;
+    private JRadioButton radioButton2;
+    private JRadioButton radioButton3;
+    private JRadioButton radioButton4;
+    private JRadioButton radioButton5;
+    private JRadioButton radioButton6;
+    private JSpinner spinner1;
+    private JSpinner spinner2;
+    private JTextField textField1;
+    private JTextArea textArea1;
+    private JTextArea textArea2;
 }
