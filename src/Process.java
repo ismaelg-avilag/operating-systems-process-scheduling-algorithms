@@ -48,5 +48,17 @@ public class Process {
         }
     };
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Nombre: ");
+        sb.append(name);
+        sb.append(" | Duración: ");
+        sb.append(duration);
+        sb.append(" | Prioridad: ");
+        sb.append(priority);
+        return sb.toString();
+    }
+
 
 }
