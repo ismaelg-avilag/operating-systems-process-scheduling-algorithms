@@ -5,10 +5,8 @@ import java.util.ArrayList;
 
 public class FileManager {
 
-    public static ArrayList<Process> readProccessesFile(String filePath)
+    public static void readProccessesFile(String filePath, ArrayList<Process> processesList)
     {
-        ArrayList<Process> processesList = new ArrayList<Process>();
-
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
             String line = reader.readLine();
@@ -24,7 +22,5 @@ public class FileManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return processesList;
     }
 }
