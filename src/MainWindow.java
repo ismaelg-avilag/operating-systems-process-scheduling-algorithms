@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
 public class MainWindow {
@@ -14,11 +15,14 @@ public class MainWindow {
     private JSpinner spinnerDuration;
     private JSpinner spinnerPriority;
     private JTextField textFieldProcessName;
-    private JTextArea textAreaAlgorithOutput;
-    private JTextArea textAreaProcesses;
     private JPanel panelMain;
+    private JTable tableProcesses;
+    private JTable tableAlgorithmOutput;
 
     ArrayList<Process> processes = new ArrayList<>();
+
+    String[] tableProcessesColumnNames = {"Nombre", "Duración", "Prioridad"};
+    DefaultTableModel tableProcesessModel = new DefaultTableModel(tableProcessesColumnNames, 0);
 
     public MainWindow() {
         ButtonGroup processOrder = new ButtonGroup();
@@ -34,8 +38,10 @@ public class MainWindow {
         buttonLoadProcesses.addActionListener(e -> {
             FileManager.readProccessesFile("processes.txt", processes);
 
+            tableProcesses.setModel(tableProcesessModel);
+
             for (Process process : processes)
-                textAreaProcesses.append(process.toString() + "\n");
+                tableProcesessModel.addRow(new Object[]{process.getName(), process.getDuration(), process.getPriority()});
 
             buttonLoadProcesses.setEnabled(false);
         });
@@ -52,38 +58,57 @@ public class MainWindow {
             else if(radioButtonEnd.isSelected())
                 processes.add(p);
 
-            refreshProcessesTextArea();
+            refreshProcessesTable();
             inputReset();
         });
 
         buttonExecute.addActionListener(e -> {
-            textAreaAlgorithOutput.setText("");
+            if(radioButtonFCFS.isSelected()) {
+                String[] FCFSColumnNames = {"Orden de ejecución", "Nombre del proceso"};
+                DefaultTableModel tableFCFSModel = new DefaultTableModel(FCFSColumnNames, 0);
+                tableAlgorithmOutput.setModel(tableFCFSModel);
 
-            if(radioButtonFCFS.isSelected())
                 for (String s : PlanningAlgorithms.FCFS(processes))
-                    textAreaAlgorithOutput.append(s + "\n");
+                    tableFCFSModel.addRow(new Object[]{tableFCFSModel.getRowCount() + 1, s});
+            }
 
-            else if(RadioButtonSJF.isSelected())
+            else if(RadioButtonSJF.isSelected()) {
+                String[] SJFColumnNames = {"Orden de ejecución", "Nombre del proceso", "Duración"};
+                DefaultTableModel tableSJFModel = new DefaultTableModel(SJFColumnNames, 0);
+                tableAlgorithmOutput.setModel(tableSJFModel);
+
                 for (String s : PlanningAlgorithms.SJF(processes))
-                    textAreaAlgorithOutput.append(s + "\n");
+                    tableSJFModel.addRow(new Object[]{tableSJFModel.getRowCount() + 1, s.split(",")[0], s.split(",")[1]});
+            }
 
-            else if(radioButtonPriorities.isSelected())
+            else if(radioButtonPriorities.isSelected()) {
+                String[] PrioritiesColumnNames = {"Orden de ejecución", "Nombre del proceso", "Prioridad"};
+                DefaultTableModel tablePrioritiesModel = new DefaultTableModel(PrioritiesColumnNames, 0);
+                tableAlgorithmOutput.setModel(tablePrioritiesModel);
+
                 for (String s : PlanningAlgorithms.Priorities(processes))
-                    textAreaAlgorithOutput.append(s + "\n");
+                    tablePrioritiesModel.addRow(new Object[]{tablePrioritiesModel.getRowCount() + 1, s.split(",")[0], s.split(",")[1]});
+            }
 
-            else if(radioButtonRoundRobin.isSelected())
+            else if(radioButtonRoundRobin.isSelected()) {
+                String[] RoundRobinColumnNames = {"Turno", "Nombre del proceso", "Tiempo restante"};
+                DefaultTableModel tableRoundRobinModel = new DefaultTableModel(RoundRobinColumnNames, 0);
+                tableAlgorithmOutput.setModel(tableRoundRobinModel);
+
                 for (String s : PlanningAlgorithms.RoundRobin(processes, 3))
-                    textAreaAlgorithOutput.append(s + "\n");
-
+                    tableRoundRobinModel.addRow(new Object[]{tableRoundRobinModel.getRowCount() + 1, s.split(",")[0], s.split(",")[1]});
+            }
         });
+
     }
 
-    private void refreshProcessesTextArea()
+    private void refreshProcessesTable()
     {
-        textAreaProcesses.setText("");
+        tableProcesessModel.setRowCount(0);
+        tableProcesses.setModel(tableProcesessModel);
 
         for (Process process : processes)
-            textAreaProcesses.append(process.toString() + "\n");
+            tableProcesessModel.addRow(new Object[]{process.getName(), process.getDuration(), process.getPriority()});
     }
 
     private void inputReset() {

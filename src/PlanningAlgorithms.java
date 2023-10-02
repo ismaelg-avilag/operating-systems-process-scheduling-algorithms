@@ -29,8 +29,14 @@ public class PlanningAlgorithms {
         for(Process process : processesList)
             sjfQueue.add(process);
 
-        while(!sjfQueue.isEmpty())
-            result.add(sjfQueue.poll().getName());
+        while(!sjfQueue.isEmpty()) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(sjfQueue.peek().getName() + "," + sjfQueue.peek().getDuration());
+
+            result.add(sb.toString());
+
+            sjfQueue.poll();
+        }
 
         return result;
     }
@@ -44,8 +50,14 @@ public class PlanningAlgorithms {
         for(Process process : processesList)
             priorityQueue.add(process);
 
-        while(!priorityQueue.isEmpty())
-            result.add(priorityQueue.poll().getName());
+        while(!priorityQueue.isEmpty()) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(priorityQueue.peek().getName() + "," + priorityQueue.peek().getPriority());
+
+            result.add(sb.toString());
+
+            priorityQueue.poll();
+        }
 
         return result;
     }
@@ -63,13 +75,15 @@ public class PlanningAlgorithms {
             StringBuilder sb = new StringBuilder();
 
             if(process.getDuration() > quantum) {
-                sb.append(process.getName() + " - Tiempo restante: " + process.getDuration());
                 process.setDuration(process.getDuration() - quantum);
+
+                sb.append(process.getName() + "," + process.getDuration());
+
                 roundRobinQueue.add(process);
                 result.add(sb.toString());
             }
             else {
-                result.add(process.getName() + " - Proceso Terminado\n");
+                result.add(process.getName() + ",Proceso Terminado");
             }
         }
 
