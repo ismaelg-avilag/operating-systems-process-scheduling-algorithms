@@ -2,7 +2,7 @@
 
 This project is an extension of the original [Process Scheduling Algorithms project](https://github.com/ismaelg-avilag/os-lab03-process-planning-algorithms-01), which now includes a Graphical User Interface (GUI) implemented with Java Swing for enhanced user interaction. In addition to loading processes from a file, users can now add new processes and choose whether to place them at the beginning or the end of the process queue.
 
-![Demo GIF](add_link_to_demo_gif_here.gif)
+![Demo GIF](https://github.com/ismaelg-avilag/os-lab04-process-planning-algorithms-02/blob/main/images/GUI.gif)
 
 ## Table of Contents
 - [Features](#features)
