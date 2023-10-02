@@ -4,7 +4,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-        ArrayList<Process> processesList = FileManager.readProccessesFile("processes.txt");
+        ArrayList<Process> processesList = new ArrayList<>();
+        FileManager.readProccessesFile("processes.txt", processesList);
         Scanner scanner = new Scanner(System.in);
 
         int option = 0;
