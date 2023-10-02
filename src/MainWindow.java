@@ -121,8 +121,8 @@ public class MainWindow {
         JFrame frame = new JFrame("Algoritmos de Planificación de Procesos");
         frame.setContentPane(new MainWindow().panelMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
