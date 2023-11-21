@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class FileManager {
 
-    public static void readProccessesFile(String filePath, ArrayList<Process> processesList)
+    public static void ReadProccessesFile(String filePath, ArrayList<Process> processesList)
     {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filePath));

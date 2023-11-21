@@ -1,6 +1,9 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.File;
+import java.util.Objects;
 
 public class MainWindow {
     private JButton buttonLoadProcesses;
@@ -36,14 +39,12 @@ public class MainWindow {
         algorithmSelection.add(radioButtonRoundRobin);
 
         buttonLoadProcesses.addActionListener(e -> {
-            FileManager.readProccessesFile("processes.txt", processes);
+            FileManager.ReadProccessesFile(Objects.requireNonNull(selectFile()).getPath(), processes);
 
             tableProcesses.setModel(tableProcesessModel);
 
             for (Process process : processes)
                 tableProcesessModel.addRow(new Object[]{process.getName(), process.getDuration(), process.getPriority()});
-
-            buttonLoadProcesses.setEnabled(false);
         });
 
         buttonAddProcess.addActionListener(e -> {
@@ -115,6 +116,20 @@ public class MainWindow {
         textFieldProcessName.setText("");
         spinnerDuration.setValue(0);
         spinnerPriority.setValue(0);
+    }
+
+    private File selectFile()
+    {
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
+
+        fileChooser.setDialogTitle("Selecciona un archivo de texto");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.setFileFilter(filter);
+
+        int returnValue = fileChooser.showOpenDialog(panelMain);
+
+        return returnValue == JFileChooser.APPROVE_OPTION ? fileChooser.getSelectedFile() : null;
     }
 
     public static void main(String[] args) {
