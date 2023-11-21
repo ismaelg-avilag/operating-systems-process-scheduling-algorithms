@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class MainWindow {
     private JButton buttonLoadProcesses;
     private JButton buttonAddProcess;
-    private JButton buttonExecute;
+    private JButton buttonRunAlgorithm;
     private JRadioButton radioButtonBegin;
     private JRadioButton radioButtonEnd;
     private JRadioButton radioButtonFCFS;
@@ -62,7 +62,7 @@ public class MainWindow {
             inputReset();
         });
 
-        buttonExecute.addActionListener(e -> {
+        buttonRunAlgorithm.addActionListener(e -> {
             if(radioButtonFCFS.isSelected()) {
                 String[] FCFSColumnNames = {"Orden de ejecución", "Nombre del proceso"};
                 DefaultTableModel tableFCFSModel = new DefaultTableModel(FCFSColumnNames, 0);

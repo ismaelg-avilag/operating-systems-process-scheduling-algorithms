@@ -1,241 +1,307 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="MainWindow">
-  <grid id="27dc6" binding="panelMain" layout-manager="GridLayoutManager" row-count="12" column-count="23" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="panelMain" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="20" left="20" bottom="20" right="20"/>
     <constraints>
-      <xy x="20" y="20" width="1307" height="636"/>
+      <xy x="20" y="20" width="1100" height="750"/>
     </constraints>
     <properties>
       <background color="-16303284"/>
-      <font name="Roboto" size="22" style="0"/>
+      <font name="Roboto" size="14" style="0"/>
       <foreground color="-2234906"/>
-      <preferredSize width="900" height="850"/>
+      <minimumSize width="1000" height="750"/>
+      <preferredSize width="1000" height="750"/>
     </properties>
     <border type="none"/>
     <children>
-      <component id="f9eb8" class="javax.swing.JButton" binding="buttonLoadProcesses">
+      <grid id="4d60" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="0" column="21" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1095825"/>
-          <font name="Roboto" size="22" style="0"/>
-          <foreground color="-16777216"/>
-          <text value="Cargar Procesos"/>
-        </properties>
-      </component>
-      <component id="78bca" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="1" column="0" row-span="1" col-span="23" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Roboto" size="28" style="0"/>
+          <background color="-16303284"/>
+          <font name="Roboto" size="14" style="0"/>
           <foreground color="-2234906"/>
-          <text value="Agregar Proceso"/>
         </properties>
-      </component>
-      <component id="97532" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Roboto" size="22" style="0"/>
-          <foreground color="-2234906"/>
-          <text value="Nombre del Proceso"/>
-        </properties>
-      </component>
-      <component id="9d634" class="javax.swing.JTextField" binding="textFieldProcessName">
-        <constraints>
-          <grid row="2" column="3" row-span="1" col-span="20" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
+        <border type="none" title="Añadir Procesos" title-justification="2">
+          <title-color color="-2234906"/>
+        </border>
+        <children>
+          <grid id="bcf57" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16303284"/>
+              <font name="Roboto" size="14" style="0"/>
+              <foreground color="-2234906"/>
+            </properties>
+            <border type="none" title="Agregar procesos desde un archivo" title-justification="2">
+              <title-color color="-2234906"/>
+            </border>
+            <children>
+              <component id="608e5" class="javax.swing.JButton" binding="buttonLoadProcesses">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-15627598"/>
+                  <font name="Roboto" size="18" style="0"/>
+                  <foreground color="-16777216"/>
+                  <margin top="5" left="0" bottom="5" right="0"/>
+                  <text value="Seleccionar un archivo"/>
+                </properties>
+              </component>
+            </children>
           </grid>
-        </constraints>
-        <properties>
-          <background color="-2234906"/>
-          <font name="Roboto" size="22" style="0"/>
-        </properties>
-      </component>
-      <component id="4388e" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Roboto" size="22" style="0"/>
-          <foreground color="-2234906"/>
-          <text value="Duración del proceso:"/>
-        </properties>
-      </component>
-      <component id="bb02c" class="javax.swing.JSpinner" binding="spinnerDuration">
-        <constraints>
-          <grid row="3" column="3" row-span="1" col-span="20" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-2234906"/>
-          <font name="Roboto" size="22" style="0"/>
-        </properties>
-      </component>
-      <component id="db3af" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="4" column="0" row-span="2" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Roboto" size="22" style="0"/>
-          <foreground color="-2234906"/>
-          <text value="Prioridad del Proceso"/>
-        </properties>
-      </component>
-      <component id="30b7b" class="javax.swing.JSpinner" binding="spinnerPriority">
-        <constraints>
-          <grid row="4" column="3" row-span="2" col-span="20" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-2234906"/>
-          <font name="Roboto" size="22" style="0"/>
-        </properties>
-      </component>
-      <component id="51661" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Roboto" size="22" style="0"/>
-          <foreground color="-2234906"/>
-          <text value="Agregar al inicio o al final:"/>
-        </properties>
-      </component>
-      <component id="7d35e" class="javax.swing.JRadioButton" binding="radioButtonEnd">
-        <constraints>
-          <grid row="6" column="11" row-span="1" col-span="12" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-16303284"/>
-          <font name="Roboto" size="22" style="0"/>
-          <foreground color="-2234906"/>
-          <text value="Final"/>
-        </properties>
-      </component>
-      <component id="32fa7" class="javax.swing.JButton" binding="buttonAddProcess">
-        <constraints>
-          <grid row="7" column="0" row-span="1" col-span="23" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-11930"/>
-          <font name="Roboto" size="22" style="0"/>
-          <foreground color="-16777216"/>
-          <text value="Agregar Proceso"/>
-        </properties>
-      </component>
-      <component id="b1fac" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="9" column="0" row-span="1" col-span="22" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Roboto" size="28" style="0"/>
-          <foreground color="-2234906"/>
-          <text value="Selecciona el Algoritmo de Planificación"/>
-        </properties>
-      </component>
-      <component id="f2cf8" class="javax.swing.JRadioButton" binding="radioButtonFCFS">
-        <constraints>
-          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-16303284"/>
-          <font name="Roboto" size="22" style="0"/>
-          <foreground color="-2234906"/>
-          <selected value="true"/>
-          <text value="FCFS"/>
-        </properties>
-      </component>
-      <component id="bf89f" class="javax.swing.JButton" binding="buttonExecute">
-        <constraints>
-          <grid row="10" column="10" row-span="1" col-span="13" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-16329056"/>
-          <font name="Roboto" size="22" style="0"/>
-          <foreground color="-16777216"/>
-          <text value="Ejecutar"/>
-        </properties>
-      </component>
-      <component id="91f73" class="javax.swing.JRadioButton" binding="RadioButtonSJF">
-        <constraints>
-          <grid row="10" column="1" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-16303284"/>
-          <font name="Roboto" size="22" style="0"/>
-          <foreground color="-2234906"/>
-          <hideActionText value="false"/>
-          <text value="SJF"/>
-        </properties>
-      </component>
-      <component id="66a71" class="javax.swing.JRadioButton" binding="radioButtonPriorities">
-        <constraints>
-          <grid row="10" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-16303284"/>
-          <font name="Roboto" size="22" style="0"/>
-          <foreground color="-2234906"/>
-          <text value="Prioridades"/>
-        </properties>
-      </component>
-      <component id="ed2cf" class="javax.swing.JRadioButton" binding="radioButtonRoundRobin">
-        <constraints>
-          <grid row="10" column="7" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-16303284"/>
-          <font name="Roboto" size="22" style="0"/>
-          <foreground color="-2234906"/>
-          <text value="Round Robin"/>
-        </properties>
-      </component>
-      <component id="53542" class="javax.swing.JRadioButton" binding="radioButtonBegin">
-        <constraints>
-          <grid row="6" column="3" row-span="1" col-span="8" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-16303284"/>
-          <font name="Roboto" size="22" style="0"/>
-          <foreground color="-2234906"/>
-          <selected value="true"/>
-          <text value="Inicio"/>
-        </properties>
-      </component>
-      <scrollpane id="b4a6c">
-        <constraints>
-          <grid row="8" column="0" row-span="1" col-span="23" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Roboto" size="10" style="0"/>
-        </properties>
-        <border type="none"/>
-        <children>
-          <component id="269c1" class="javax.swing.JTable" binding="tableProcesses">
-            <constraints/>
+          <grid id="52528" layout-manager="GridLayoutManager" row-count="5" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
             <properties>
-              <font name="Roboto" size="12" style="0"/>
+              <background color="-16303284"/>
+              <font name="Roboto" size="14" style="0"/>
+              <foreground color="-2234906"/>
+            </properties>
+            <border type="none" title="Agregar procesos manualmente" title-justification="2">
+              <title-color color="-2234906"/>
+            </border>
+            <children>
+              <component id="f0b04" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-2234906"/>
+                  <text value="Nombre del proceso:"/>
+                </properties>
+              </component>
+              <component id="6a3d9" class="javax.swing.JTextField" binding="textFieldProcessName">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-2234906"/>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-16777216"/>
+                </properties>
+              </component>
+              <component id="7f12b" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-2234906"/>
+                  <text value="Duración del proceso:"/>
+                </properties>
+              </component>
+              <component id="bd72c" class="javax.swing.JSpinner" binding="spinnerDuration">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-2234906"/>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-16777216"/>
+                </properties>
+              </component>
+              <component id="aa2c8" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-2234906"/>
+                  <text value="Prioridad del proceso:"/>
+                </properties>
+              </component>
+              <component id="99bb0" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-2234906"/>
+                  <text value="Agregar al inicio o al final:"/>
+                </properties>
+              </component>
+              <component id="8efc5" class="javax.swing.JSpinner" binding="spinnerPriority">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-2234906"/>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-16777216"/>
+                </properties>
+              </component>
+              <component id="7ef65" class="javax.swing.JRadioButton" binding="radioButtonBegin">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-16303284"/>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-2234906"/>
+                  <text value="Inicio"/>
+                </properties>
+              </component>
+              <component id="dc5e4" class="javax.swing.JRadioButton" binding="radioButtonEnd">
+                <constraints>
+                  <grid row="3" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-16303284"/>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-2234906"/>
+                  <text value="Final"/>
+                </properties>
+              </component>
+              <component id="56cbe" class="javax.swing.JButton" binding="buttonAddProcess">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-11930"/>
+                  <font name="Roboto" size="18" style="0"/>
+                  <foreground color="-16777216"/>
+                  <margin top="5" left="0" bottom="5" right="0"/>
+                  <text value="Añadir proceso"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <component id="737e7" class="javax.swing.JTable" binding="tableProcesses">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-2234906"/>
+              <font name="Roboto" size="14" style="0"/>
+              <foreground color="-16777216"/>
             </properties>
           </component>
         </children>
-      </scrollpane>
-      <scrollpane id="6b398">
+      </grid>
+      <grid id="795aa" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="11" column="0" row-span="1" col-span="23" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
-        <border type="none"/>
+        <properties>
+          <background color="-16303284"/>
+          <font name="Roboto" size="14" style="0"/>
+          <foreground color="-2234906"/>
+        </properties>
+        <border type="none" title="Algoritmos de Planificación" title-justification="2">
+          <title-color color="-2234906"/>
+        </border>
         <children>
-          <component id="d2d5e" class="javax.swing.JTable" binding="tableAlgorithmOutput">
-            <constraints/>
+          <grid id="baf62" layout-manager="GridLayoutManager" row-count="3" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
             <properties>
-              <font name="Roboto" size="12" style="0"/>
+              <background color="-16303284"/>
+              <font name="Roboto" size="14" style="0"/>
+              <foreground color="-2234906"/>
+            </properties>
+            <border type="none" title="Selecciona el algoritmo de planificación" title-justification="2">
+              <title-color color="-2234906"/>
+            </border>
+            <children>
+              <component id="71535" class="javax.swing.JRadioButton" binding="radioButtonFCFS">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-16303284"/>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-2234906"/>
+                  <text value="FCFS"/>
+                </properties>
+              </component>
+              <component id="76247" class="javax.swing.JRadioButton" binding="RadioButtonSJF">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-16303284"/>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-2234906"/>
+                  <text value="SJF"/>
+                </properties>
+              </component>
+              <component id="30bfa" class="javax.swing.JRadioButton" binding="radioButtonPriorities">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-16303284"/>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-2234906"/>
+                  <text value="Prioridades"/>
+                </properties>
+              </component>
+              <component id="544f0" class="javax.swing.JRadioButton" binding="radioButtonRoundRobin">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-16303284"/>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-2234906"/>
+                  <text value="Round Robin"/>
+                </properties>
+              </component>
+              <component id="8ec23" class="javax.swing.JButton" binding="buttonRunAlgorithm">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-16329056"/>
+                  <font name="Roboto" size="18" style="0"/>
+                  <foreground color="-16777216"/>
+                  <margin top="5" left="0" bottom="5" right="0"/>
+                  <text value="Ejecutar algoritmo"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <component id="17efe" class="javax.swing.JTable" binding="tableAlgorithmOutput">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-2234906"/>
+              <font name="Roboto" size="14" style="0"/>
+              <foreground color="-16777216"/>
             </properties>
           </component>
         </children>
-      </scrollpane>
+      </grid>
+      <component id="38d01" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Roboto" size="26" style="0"/>
+          <foreground color="-2234906"/>
+          <text value="Algoritmos de Planificación de Procesos"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>
