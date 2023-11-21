@@ -1,11 +1,28 @@
+import java.beans.PropertyEditor;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class PlanningAlgorithms {
+public class PlanningAlgorithms implements  Runnable {
+    private ArrayList<Process> processesList;
 
-    public static ArrayList<String> FCFS(ArrayList<Process> processesList)
+    public PlanningAlgorithms()
+    {
+        processesList = new ArrayList<Process>();
+    }
+
+    public synchronized void addProcess(Process process)
+    {
+        processesList.add(process);
+    }
+
+    public ArrayList<Process> getProcessesList()
+    {
+        return processesList;
+    }
+
+    private ArrayList<String> FCFS(ArrayList<Process> processesList)
     {
         ArrayList<String> result = new ArrayList<String>();
 
@@ -20,7 +37,7 @@ public class PlanningAlgorithms {
         return result;
     }
 
-    public static ArrayList<String> SJF(ArrayList<Process> processesList)
+    private ArrayList<String> SJF(ArrayList<Process> processesList)
     {
         ArrayList<String> result = new ArrayList<String>();
 
@@ -41,7 +58,7 @@ public class PlanningAlgorithms {
         return result;
     }
 
-    public static ArrayList<String> Priorities(ArrayList<Process> processesList)
+    private ArrayList<String> Priorities(ArrayList<Process> processesList)
     {
         ArrayList<String> result = new ArrayList<String>();
 
@@ -62,7 +79,7 @@ public class PlanningAlgorithms {
         return result;
     }
 
-    public static ArrayList<String> RoundRobin(ArrayList<Process> processesList, int quantum)
+    private ArrayList<String> RoundRobin(ArrayList<Process> processesList, int quantum)
     {
         ArrayList<String> result = new ArrayList<String>();
         Queue<Process> roundRobinQueue = new LinkedList<>();
@@ -90,4 +107,18 @@ public class PlanningAlgorithms {
         return result;
     }
 
+    public void runAlgorithm(String algorithm, int quantum)
+    {
+        switch (algorithm) {
+            case "FCFS" -> FCFS(processesList);
+            case "SJF" -> SJF(processesList);
+            case "Priorities" -> Priorities(processesList);
+            case "RoundRobin" -> RoundRobin(processesList, quantum);
+        }
+    }
+
+    @Override
+    public void run() {
+
+    }
 }

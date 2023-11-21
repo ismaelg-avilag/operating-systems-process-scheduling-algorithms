@@ -9,8 +9,6 @@ public class MainWindow {
     private JButton buttonLoadProcesses;
     private JButton buttonAddProcess;
     private JButton buttonRunAlgorithm;
-    private JRadioButton radioButtonBegin;
-    private JRadioButton radioButtonEnd;
     private JRadioButton radioButtonFCFS;
     private JRadioButton RadioButtonSJF;
     private JRadioButton radioButtonPriorities;
@@ -22,16 +20,12 @@ public class MainWindow {
     private JTable tableProcesses;
     private JTable tableAlgorithmOutput;
 
-    ArrayList<Process> processes = new ArrayList<>();
+    PlanningAlgorithms planningAlgorithms = new PlanningAlgorithms();
 
     String[] tableProcessesColumnNames = {"Nombre", "Duración", "Prioridad"};
     DefaultTableModel tableProcesessModel = new DefaultTableModel(tableProcessesColumnNames, 0);
 
     public MainWindow() {
-        ButtonGroup processOrder = new ButtonGroup();
-        processOrder.add(radioButtonBegin);
-        processOrder.add(radioButtonEnd);
-
         ButtonGroup algorithmSelection = new ButtonGroup();
         algorithmSelection.add(radioButtonFCFS);
         algorithmSelection.add(RadioButtonSJF);
@@ -39,11 +33,12 @@ public class MainWindow {
         algorithmSelection.add(radioButtonRoundRobin);
 
         buttonLoadProcesses.addActionListener(e -> {
-            FileManager.ReadProccessesFile(Objects.requireNonNull(selectFile()).getPath(), processes);
+            for (Process process : FileManager.ReadProccessesFile(Objects.requireNonNull(selectFile()).getPath()))
+                planningAlgorithms.addProcess(process);
 
             tableProcesses.setModel(tableProcesessModel);
 
-            for (Process process : processes)
+            for (Process process : planningAlgorithms.getProcessesList())
                 tableProcesessModel.addRow(new Object[]{process.getName(), process.getDuration(), process.getPriority()});
         });
 
@@ -52,12 +47,7 @@ public class MainWindow {
             int duration = (int) spinnerDuration.getValue();
             int priority = (int) spinnerPriority.getValue();
 
-            Process p = new Process(processName, duration, priority);
-
-            if(radioButtonBegin.isSelected())
-                processes.add(0, p);
-            else if(radioButtonEnd.isSelected())
-                processes.add(p);
+            planningAlgorithms.addProcess(new Process(processName, duration, priority));
 
             refreshProcessesTable();
             inputReset();
@@ -108,7 +98,7 @@ public class MainWindow {
         tableProcesessModel.setRowCount(0);
         tableProcesses.setModel(tableProcesessModel);
 
-        for (Process process : processes)
+        for (Process process : planningAlgorithms.getProcessesList())
             tableProcesessModel.addRow(new Object[]{process.getName(), process.getDuration(), process.getPriority()});
     }
 
